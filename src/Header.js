@@ -6,7 +6,7 @@ import { Button, Navbar, NavDropdown, Nav, Form } from 'react-bootstrap';
 const Header = (props) => {
     return (
         (
-            <Navbar bg="light" expand="lg">
+            <Navbar  bg="light" expand="lg">
                 <Navbar.Brand as={Link} to="/">Mec-Ballerup</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -24,8 +24,8 @@ const Header = (props) => {
 
                         </NavDropdown>
                     </Nav>
-                    <Nav pullRight>
-                        <Nav.Link as={Link} to="/">Login</Nav.Link>
+                    <Nav pullright="true">
+                    <Nav.Link as={Link} to="/Login">Login</Nav.Link>
                     </Nav>
                     
 
@@ -36,3 +36,4 @@ const Header = (props) => {
 }
 export default Header;
 
+/*   <Nav.Link as={Link} to="/ModalLogin">Login</Nav.Link> */
