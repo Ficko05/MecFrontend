@@ -12,9 +12,9 @@ function handleHttpErrors(res) {
 
 class ApiFacade {
 
-    fetchData = () => {
+    fetchDataM7Cycling = () => {
         const options = this.makeOptions("GET", true); //True add's the token
-        return fetch(URL + "m7/all", options).then(handleHttpErrors);
+        return fetch(URL + "m7/cycling", options).then(handleHttpErrors);
     }
 
     makeOptions(method, addToken, body) {

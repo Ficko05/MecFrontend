@@ -41,17 +41,11 @@ class M7 extends Component {
                 ]
             },
             chartData2: {
-                labels: ['1', '2', '3','4', '5', '6',],
+                labels: ['1', '2', '3','4', '5', '6','7'],
                 datasets: [
                     {
-                        label: 'OnMax',
-                        data: [
-                            4.8,
-                            4.5,
-                            4.8,
-                            4.5,
-                            4.6
-                        ],
+                        label: 'a',
+                        data: [],
                         borderColor: [
                             'rgba(255, 99, 132, 1)'
                         ],
@@ -60,14 +54,8 @@ class M7 extends Component {
                         ]
                     },
                     {
-                        label: 'OnMin',
-                        data: [
-                            7.4,
-                            7.5,
-                            4.4,
-                            3.2,
-                            4.7
-                        ],
+                        label: 'b',
+                        data: [],
                         borderColor: [
                             'rgba(255, 99, 132, 1)'
                         ],
@@ -76,14 +64,8 @@ class M7 extends Component {
                         ]
                     },
                     {
-                        label: 'Info1',
-                        data: [
-                            4.4,
-                            4.5,
-                            4.4,
-                            4.2,
-                            4.7
-                        ],
+                        label: 'c',
+                        data: [],
                         borderColor: [
                             'rgba(255, 99, 132, 1)'
                         ],
@@ -92,31 +74,62 @@ class M7 extends Component {
                         ]
                     },
                     {
-                        label: 'Info2',
-                        data: [
-                            5.4,
-                            5.5,
-                            5.4,
-                            5.2,
-                            5.7
-                        ],
+                        label: 'd',
+                        data: [],
                         borderColor: [
                             'rgba(255, 99, 132, 1)'
                         ],
                         fill: [
                             'false'
                         ]
+                    },{
+                        label: 'average',
+                        data: [],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)'
+                        ],
+                        fill: [
+                            'false'
+                        ]
+
                     }
+                    
                 ]
             }
         }
     }
     async componentDidMount() {
-        const data = await facade.fetchData(this.state.id);
-        var orderIds = data.map(row => row.orderId)
+        const data = await facade.fetchDataM7Cycling();
+     /*   var orderIds = data.map(row => row.orderId)
         var chart1 = this.state.chartData1
         chart1.datasets[0].data = orderIds
-        this.setState({chartData1: chart1 });
+        this.setState({chartData1: chart1 });*/
+
+        var aFixture = data.aFixture.map(row => row)
+        var chart2 = this.state.chartData2
+        chart2.datasets[0].data = aFixture
+        this.setState({chartData2: chart2});
+
+        var bFixture = data.bFixture.map(row => row)
+        var chart2 = this.state.chartData2
+        chart2.datasets[1].data = bFixture
+        this.setState({chartData2: chart2});
+
+        var cFixture = data.cFixture.map(row => row)
+        var chart2 = this.state.chartData2
+        chart2.datasets[2].data = cFixture
+        this.setState({chartData2: chart2});
+
+        var dFixture = data.dFixture.map(row => row)
+        var chart2 = this.state.chartData2
+        chart2.datasets[3].data = dFixture
+        this.setState({chartData2: chart2});
+
+        var fixtureAverage = data.fixtureAverage.map(row => row)
+        var chart2 = this.state.chartData2
+        chart2.datasets[4].data = fixtureAverage
+        this.setState({chartData2: chart2});
+
     }
 
 render() {
