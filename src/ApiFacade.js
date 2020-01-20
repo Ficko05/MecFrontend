@@ -13,9 +13,14 @@ function handleHttpErrors(res) {
 class ApiFacade {
 
     fetchDataM7Cycling = () => {
-        const options = this.makeOptions("GET", true); //True add's the token
+        const options = this.makeOptions("GET", true); 
         return fetch(URL + "m7/cycling", options).then(handleHttpErrors);
     }
+
+    fetchDataM7goodBad = () => {
+      const options = this.makeOptions("GET", true); 
+      return fetch(URL + "m7/goodBad", options).then(handleHttpErrors);
+  }
 
     login = (user, pass) => {
         const options = this.makeOptions("POST", true, { userName: user, userPassword: pass });

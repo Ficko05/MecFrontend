@@ -100,6 +100,7 @@ class M7 extends Component {
     }
     async componentDidMount() {
         const data = await facade.fetchDataM7Cycling();
+        const data1 = await facade.fetchDataM7goodBad();
      /*   var orderIds = data.map(row => row.orderId)
         var chart1 = this.state.chartData1
         chart1.datasets[0].data = orderIds
@@ -129,6 +130,17 @@ class M7 extends Component {
         var chart2 = this.state.chartData2
         chart2.datasets[4].data = fixtureAverage
         this.setState({chartData2: chart2});
+
+        var goodProduction = data1.goodProduction.map(row => row)
+        var chart1 = this.state.chartData1
+        chart1.datasets[0].data = goodProduction
+        this.setState({chartData1: chart1});
+
+        var badProduction = data1.badProduction.map(row => row)
+        var chart1 = this.state.chartData1
+        chart1.datasets[1].data = badProduction
+        this.setState({chartData1: chart1});
+
 
     }
 
